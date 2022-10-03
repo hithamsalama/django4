@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'landing_page.html' %}
+{% block  body_block%}
+<body>
+    <dev class="container">
+        <hi>You can add a book from here</h1>
+        <dev class="form-group">
+            <form  class="form-control form-control-sm form-control-lg"  method="post">    
+                {{ form.as_p}}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        </dev>
+    </dev>
+
+</body>
+{% endblock %}

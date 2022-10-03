@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'landing_page.html' %}
+{% block  body_block%}
+    <dev class=""<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Please Login: </h1>
+            <form action="{% url 'library_users:login' %}" method="post">
+                {% csrf_token %}
+                <label for="username">Username: </label>
+                <input type="username" name="username" placeholder="Your username">
+                <label for="password">Password: </label>
+                <input type="password" name="password" placeholder="password">
+                <button type="submet" value="Login">Login</button>
+            </form>
+        </div>
+    </div>></dev>
+
+{% endblock %}
+
+<button type="submit" class="btn btn-primary">Submit</button>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    {% extends 'landing_page.html' %}
+        {% block  body_block%}
+            
+        <body>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="display-4">Hello, world!</h1>
+                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <hr class="my-4">
+                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                    <p class="lead">
+                    <a class="btn btn-primary btn-lg" href= {% url 'books:add_a_book' %}  role="button">Register a  new Book</a>
+                    <a class="btn btn-info  btn-lg" href= {% url 'admin:index' %}  role="button">Go to admin Area</a>
+                    <a class="btn btn-warning btn-lg" href= '/'  role="button">Go to Homepage</a>
+        
+                </dev>
+            </dev>
+                <div class="container">
+                        {% if book_key %}
+                        <table class="table table-striped">
+                            <thead scope="col">
+                                <th scope="col" >Book Name</th>
+                                <th scope="col" >Book Auther</th>
+                                <th scope="col" >Book Type</th>
+                                <th scope="col" >Book ISBN</th>
+                                <th scope="col" >Book Copies</th>
+                                <th scope="col" >Book Issue Date</th>
+                                <th scope="col" >Book Is Out?</th>
+                            </thead>
+                            {% for i in book_key %}
+                            <tr scope="row">
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.auther }}</td>
+                                <td>{{ i.type }}</td>
+                                <td>{{ i.isbn }}</td>
+                                <td>{{ i.copies }}</td>
+                                <td>{{ i.issue_date }}</td>
+                                <td>{{ i.out }}</td>
+
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        {%else%}
+                        <p>No more records to view !!</p>
+                        {%endif%}
+                </dev>
+        </body>
+        {% endblock  %}
