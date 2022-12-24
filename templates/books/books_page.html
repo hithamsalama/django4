@@ -11,6 +11,7 @@
                     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
                     <p class="lead">
                     <a class="btn btn-primary btn-lg" href= {% url 'books:add_a_book' %}  role="button">Register a  new Book</a>
+                    <a class="btn btn-danger btn-lg" href= {% url 'books:view_books_list' %}  role="button">View Books List</a>
                     <a class="btn btn-info  btn-lg" href= {% url 'admin:index' %}  role="button">Go to admin Area</a>
                     <a class="btn btn-warning btn-lg" href= '/'  role="button">Go to Homepage</a>
         
@@ -44,6 +45,23 @@
                         {%else%}
                         <p>No more records to view !!</p>
                         {%endif%}
+                        <div class="pagination">
+                            <span class="step-links">
+                                {% if page_obj.has_previous %}
+                                    <a href="?page=1">&laquo; first</a>
+                                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                {% endif %}
+                        
+                                <span class="current">
+                                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                </span>
+                        
+                                {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                {% endif %}
+                            </span>
+                        </div>
                 </dev>
         </body>
         {% endblock  %}

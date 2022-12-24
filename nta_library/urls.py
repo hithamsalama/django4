@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('books.urls')),
-    path('', include('library_users.urls')),
+    path('', include('books.urls',namespace='Books')),
+    path('', include('library_users.urls',namespace='Library')),
     path('admin/', admin.site.urls),
+    path('forest', include('django_forest.urls')),
 ]

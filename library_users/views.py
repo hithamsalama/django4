@@ -16,7 +16,6 @@ def the_index(request):
     return render(request, "library_users/index.html",context=mydect2)
 
 
-
 def register(request):
     registered = False
     if request.method == "POST":

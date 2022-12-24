@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    {% extends 'landing_page.html' %}
+        {% block  body_block%}
+        <body>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="display-4">Hello, world!</h1>
+                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <hr class="my-4">
+                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                    <p class="lead">
+                    <a class="btn btn-primary btn-lg" href= {% url 'books:add_a_book' %}  role="button">Register a  new Book</a>
+                    <a class="btn btn-primary btn-lg" href= {% url 'books:view_books_list' %}  role="button">View Books List</a>
+                    <a class="btn btn-info  btn-lg" href= {% url 'admin:index' %}  role="button">Go to admin Area</a>
+                    <a class="btn btn-warning btn-lg" href= '/'  role="button">Go to Homepage</a>
+                </dev>
+            </dev>
+                            <p>Book Name:  {{book_detail.name}}</p>  
+                            <p>Book Auther:  {{book_detail.auther}}</p> 
+                            <p>Book Type:  {{book_detail.type}}</p>   
+                            <p>Book ISBN:  {{book_detail.isbn}}</p>  
+                            <p>Book Copies:  {{book_detail.copies}}</p> 
+                            <p>Book Issue Date:  {{book_detail.issue_date}}</p>
+                            <p>Book Out:  {{book_detail.out}}</p> 
+
+                            {% for borrower in book_detail.book_borrower.all%} 
+                            <p>Borrrower Name :  {{borrower.name}}</P>
+                            <p>Borrrower Dep. :  {{borrower.department}}</P>
+                            <p>Boorow Date :  {{borrower.borrow_date}}</P>
+                            <p>Return Date :  {{borrower.return_date}}</P>
+                            <p>Is Borrower Blaclisted :  {{borrower.blacklisted}}</P>
+                            {% endfor %}
+            </body>
+        {% endblock  %}

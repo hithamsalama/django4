@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+from pickle import TRUE
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,12 @@ MEDIA_DIR = os.path.join(BASE_DIR,"media")
 SECRET_KEY = 'django-insecure-6d)gf(=q3w$z0ew%gs9mbkz40zr@s-^q9x%5e)k(zhvy6oacx5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = TRUE
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  'localhost',
+  '127.0.0.1',
+  ]
 
 
 # Application definition
@@ -39,8 +43,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'books',
+    'django_forest',
     'library_users'
 ]
+
+FOREST = {
+   'FOREST_URL': 'https://api.forestadmin.com',
+   'FOREST_ENV_SECRET': 'dd67bcd56fae1fc2da7b725eb22ec28a6b5d269d6569c643c969080b15b7b0ca',
+   'FOREST_AUTH_SECRET': 'b2bc60b332b8be7e20a6cdb9efc200e929eb897a05c4a985'
+}
+APPEND_SLASH=False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

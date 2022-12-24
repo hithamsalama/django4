@@ -4,7 +4,6 @@ from django.db import models
 from enum import unique
 from unittest.util import _MAX_LENGTH
 
-
 # Create your models here.
 
 class Book(models.Model):
@@ -21,7 +20,7 @@ class Book(models.Model):
         return self.name
 
 class Borrower(models.Model):
-    borrower_book = models.ForeignKey(Book,on_delete=models.CASCADE)
+    borrower_book = models.ForeignKey(Book,on_delete=models.CASCADE,related_name='book_borrower')
     name = models.CharField(max_length=56,unique=False)
     department = models.CharField(max_length=56,unique=False)
     borrow_date = models.DateField()
